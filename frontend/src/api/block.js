@@ -1,25 +1,5 @@
 import { apiDelete, apiGet, apiPost } from './index'
 
-async function attach(studentId, assignmentId) {
-  try {
-    let assignmentTmp = await apiPost(`/api/studentBlock/filter`,
-      {
-        studentID: studentId,
-        assignmentID: assignmentId
-      })
-    if (assignmentTmp.length !== 0)
-      return Promise.resolve({ message: 'block is exist.' })
-    await apiPost(`/api/studentBlock`, {
-      studentID: studentId,
-      assignmentID: assignmentId,
-    });
-    
-    return Promise.resolve({message: 'success'})
-  } catch(error) {
-    return Promise.reject(error)
-  }
-}
-
 async function detach(studentId, assignmentId) {
   try {
     let assignmentTmp = await apiPost(`/api/studentBlock/filter`, {
