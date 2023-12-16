@@ -9,15 +9,6 @@ async function signup(data) {
   }
 }
 
-async function forgetPassword(data) {
-  try {
-    const res = await apiPost("/api/auth/forgetPassword", data);
-    return Promise.resolve(res);
-  } catch (error) {
-    return Promise.reject(error);
-  }
-}
-
 async function check(data) {
   try {
     const res = await apiPost("/api/auth/check", data);
