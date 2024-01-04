@@ -1,14 +1,5 @@
 import { apiGet, apiPost, apiPut, apiDelete } from './index'
 
-async function create(data) {
-  try {
-    const res = await apiPost("/api/company", data);
-    return Promise.resolve(res)
-  } catch(error) {
-    return Promise.reject(error)
-  }
-}
-
 async function update(data) {
   try {
     await apiPut(`/api/company/${data._id}`, data);
